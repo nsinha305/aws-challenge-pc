@@ -15,4 +15,18 @@ Steps Followed:
 5. Given the csv, run ConvertDataToJSON.java, to create 56 json files comprising of the data in the csv. 56 files were created because the data upload had to be done in chunks.
 6. Upload data by running upload_data.sh
 7. Create a Lambda Function - in the java/LambdaTest Project to consume a parameter value and name and query the data.
-8. Expose that Lambda Function as an API from the API Gateway.
+8. Expose that Lambda Function as an API from the API Gateway. The method type is GET and the parameters are passed via path-parameters
+
+URL for Search
+
+1. Search by plan-name
+   https://wnhdagx2q6.execute-api.us-east-2.amazonaws.com/prod/getData/plan-name/{plan-name}
+   For example : https://wnhdagx2q6.execute-api.us-east-2.amazonaws.com/prod/getData/plan-name/BADGER%20MINING%20CORPORATION%20HEALTH%20PLAN
+
+2. Search by sponsor-name
+   https://wnhdagx2q6.execute-api.us-east-2.amazonaws.com/prod/getData/sponsor-name/{sponsor-name}
+   For example : https://wnhdagx2q6.execute-api.us-east-2.amazonaws.com/prod/getData/sponsor-name/BADGER%20MINING%20CORPORATION
+
+3. Search by sponsor-state
+   https://wnhdagx2q6.execute-api.us-east-2.amazonaws.com/prod/getData/sponsor-state/{sponsor-state}
+   For example : https://wnhdagx2q6.execute-api.us-east-2.amazonaws.com/prod/getData/sponsor-state/CA
