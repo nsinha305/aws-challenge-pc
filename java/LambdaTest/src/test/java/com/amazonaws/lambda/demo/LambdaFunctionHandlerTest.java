@@ -17,15 +17,16 @@ public class LambdaFunctionHandlerTest {
 
     @BeforeClass
     public static void createInput() throws IOException {
-        // TODO: set up your sample input object here.
-        input = null;
+    	input = new MyLambdaRequest();
+        input.setParamName("SPONSOR_DFE_NAME");
+        input.setParamValue("BADGER%20MINING%20CORPORATION");
     }
 
     private Context createContext() {
         TestContext ctx = new TestContext();
 
         // TODO: customize your context here if needed.
-        ctx.setFunctionName("Your Function Name");
+        ctx.setFunctionName("MyFunction");
 
         return ctx;
     }
@@ -36,7 +37,7 @@ public class LambdaFunctionHandlerTest {
         Context ctx = createContext();
 
         MyLambdaResponse output = handler.handleRequest(input, ctx);
-
+        Assert.assertEquals(output.getCount(), 2);
         // TODO: validate output here if needed.
         //Assert.assertEquals("Hello from Lambda!", output);
     }
